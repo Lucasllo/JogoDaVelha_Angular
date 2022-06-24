@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+app-jogo-da-velha table {
+  border-collapse: collapse;
+}
+
+app-jogo-da-velha td {
+  border: 2px solid black;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+}

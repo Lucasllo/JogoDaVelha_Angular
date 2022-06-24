@@ -1,0 +1,3 @@
+<p>Valor: {{contador}}</p>
+<button [disabled]="contador >= 10" (click)="adicionar()" >+1</button>
+<button [disabled]="contador <= 0" (click)="diminuir()">-1</button>
