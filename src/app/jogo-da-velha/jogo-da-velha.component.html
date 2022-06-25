@@ -1,10 +1,16 @@
-<p>Jogo Da Velha</p>
-<p>Jogador: {{jogador}} </p>
-<p>Vencedor: {{vencedor}}</p>
+<h1>Jogo Da Velha</h1>
+<p *ngIf="!vencedor">Jogador: {{jogador}} </p>
+<p *ngIf="vencedor">Vencedor: {{vencedor}}</p>
 <p><button (click)="reset()">Reiniciar Jogo</button></p>
 
 <table>
-  <tr>
+  <tr *ngFor="let linha of [0, 1, 2]">
+    <td *ngFor="let col of [0, 1, 2]" (click)="seleciona(linha, col)">{{tabela[linha][col]}}</td>
+  </tr>
+
+
+  <!-- Modo de fazer sem diretivas estruturais
+     <tr>
     <td (click)="seleciona(0,0)">{{tabela[0][0]}}</td>
     <td (click)="seleciona(0,1)">{{tabela[0][1]}}</td>
     <td (click)="seleciona(0,2)">{{tabela[0][2]}}</td>
@@ -18,5 +24,5 @@
     <td (click)="seleciona(2,0)">{{tabela[2][0]}}</td>
     <td (click)="seleciona(2,1)">{{tabela[2][1]}}</td>
     <td (click)="seleciona(2,2)">{{tabela[2][2]}}</td>
-  </tr>
+  </tr> -->
 </table>
