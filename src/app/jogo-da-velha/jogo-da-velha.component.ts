@@ -17,20 +17,20 @@ export class JogoDaVelhaComponent {
   seleciona(lin: number, col: number) {
     if (this.tabela[lin][col] == '' && this.vencedor == '') {
       this.tabela[lin][col] = this.jogador;
-    }
-
-    if(this.verificaVencedor(this.jogador)){
-      this.vencedor = this.jogador;
-    }
-
-
-    if (this.jogador == 'O') {
-      this.jogador = 'X';
-    } else {
-      this.jogador = 'O';
+      if (this.verificaVencedor(this.jogador)) {
+        this.vencedor = this.jogador;
+      }
+      this.mudarJogador();
     }
   }
 
+  mudarJogador() {
+    if (this.jogador == "O") {
+      this.jogador = "X";
+    } else if (this.jogador == "X") {
+      this.jogador = "O";
+    }
+  }
   verificaVencedor(jogador:string):boolean{
     for (let i = 0; i < this.tabela.length; i++) {
       if(this.tabela[i][0] == jogador && this.tabela[i][1] == jogador && this.tabela[i][2] == jogador){
